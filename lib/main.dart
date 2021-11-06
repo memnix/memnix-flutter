@@ -143,7 +143,7 @@ class _CardWidget extends State<CardWidget> {
                       jwt: jwt,
                     );
                   } else if (snapshot.hasError) {
-                    return Text('${snapshot.error}');
+                    return const Text("You don't have more cards to play today !");
                   }
                   return const CircularProgressIndicator();
                 })));
