@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:myapp/main.dart';
+import 'package:myapp/queries/login.dart';
 import 'package:myapp/screens/main_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -166,16 +167,5 @@ class _WelcomeBody extends State<WelcomeBody> {
             ])),
       ],
     );
-  }
-
-  Future<String?> attemptLogIn(String email, String password) async {
-    var res = await http.post(Uri.parse('http://192.168.1.151:1813/api/login'),
-        headers: {"Content-Type": "application/json"},
-        body: json.encode({'email': email, 'password': password}));
-    if (res.statusCode == 200) {
-      var cookie = res.headers['set-cookie'];
-      return cookie;
-    }
-    return null;
   }
 }
