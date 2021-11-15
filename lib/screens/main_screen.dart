@@ -6,8 +6,6 @@ import 'package:myapp/main.dart';
 import 'package:myapp/widgets/card_widget.dart';
 import 'package:myapp/widgets/profile_widget.dart';
 
-import '../bar.dart';
-
 class MainPage extends StatefulWidget {
   final String jwt;
   final Map<String, dynamic> payload;
@@ -37,7 +35,6 @@ class _MainPage extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final List _children = [
-      //const CardsPage(),
       const PlaceholderWidget(Colors.red),
       CardWidget(jwt: jwt),
       const ProfileWidget(),
@@ -45,7 +42,6 @@ class _MainPage extends State<MainPage> {
     return WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-          //appBar: const MyAppBar(),
           bottomNavigationBar: BottomNavigationBar(
             selectedFontSize: 14,
             selectedIconTheme: const IconThemeData(size: 26),
