@@ -60,7 +60,7 @@ class _McqButtonWidget extends State<McqButtonWidget> {
         onPrimary: Colors.white,
         onSurface: Colors.blueAccent,
         elevation: 20,
-        minimumSize: const Size(275, 60),
+        minimumSize: const Size(270, 50),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       child: Text(

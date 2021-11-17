@@ -20,7 +20,7 @@ class QuestionDecoration extends StatelessWidget {
   Widget build(BuildContext context) {
     if (card.imageUrl.length <= 5) {
       return Container(
-        height: 180,
+        height: 170,
         decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -30,7 +30,7 @@ class QuestionDecoration extends StatelessWidget {
       );
     } else {
       return Container(
-          height: 180,
+          height: 170,
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: const BorderRadius.only(

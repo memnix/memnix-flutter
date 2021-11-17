@@ -89,7 +89,7 @@ class _TodaysWidgetState extends State<TodaysWidget> {
   Widget build(BuildContext context) {
     return Column(children: [
       QuestionWidget(widget.card!),
-      const Padding(padding: EdgeInsets.all(20.0)),
+      const Padding(padding: EdgeInsets.all(10.0)),
       showWidget(widget.card!, context),
     ]);
   }
