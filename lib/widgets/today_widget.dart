@@ -28,11 +28,11 @@ class _TodaysWidgetState extends State<TodaysWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             McqButtonWidget(card.response0, card, widget.jwt),
-            const Padding(padding: EdgeInsets.all(10.0)),
+            const Padding(padding: EdgeInsets.all(8.0)),
             McqButtonWidget(card.response1, card, widget.jwt),
-            const Padding(padding: EdgeInsets.all(10.0)),
+            const Padding(padding: EdgeInsets.all(8.0)),
             McqButtonWidget(card.response2, card, widget.jwt),
-            const Padding(padding: EdgeInsets.all(10.0)),
+            const Padding(padding: EdgeInsets.all(8.0)),
             McqButtonWidget(card.response3, card, widget.jwt),
           ]);
     } else {

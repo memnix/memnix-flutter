@@ -5,7 +5,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar({Key? key}) : super(key: key);
 
   @override
-  Size get preferredSize => const Size.fromHeight(50);
+  Size get preferredSize => const Size.fromHeight(40);
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -43,7 +43,7 @@ class CardAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CardAppBar({Key? key}) : super(key: key);
 
   @override
-  Size get preferredSize => const Size.fromHeight(50);
+  Size get preferredSize => const Size.fromHeight(40);
   @override
   Widget build(BuildContext context) {
     return AppBar(
