@@ -1,11 +1,11 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:myapp/models/memcard.dart';
+import 'package:myapp/screens/main_screen.dart';
 
 import 'package:myapp/screens/welcome_screen.dart';
 import 'package:double_back_to_close/double_back_to_close.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:http/http.dart' as http;
 
 const storage = FlutterSecureStorage();
 
@@ -31,11 +31,12 @@ class MyApp extends StatelessWidget {
           future: jwtOrEmpty,
           builder: (context, snapshot) {
             if (!snapshot.hasData) return const CircularProgressIndicator();
-            return const DoubleBack(
-              message: "Press back again to close",
-              child: WelcomeScreen(),
-            );
-          }),
+              return DoubleBack(
+                message: "Press back again to close",
+                child: WelcomeScreen(snapshot.data.toString()),
+              );
+            }
+          ),
     );
   }
 }

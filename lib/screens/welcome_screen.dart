@@ -9,10 +9,14 @@ import 'package:myapp/queries/login.dart';
 import 'package:myapp/screens/main_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen(this.data, {Key? key}) : super(key: key);
+
+  final dynamic data;
+
 
   @override
   Widget build(BuildContext context) {
+    if(data != "") return MainPage.fromBase64(data);
     return const Scaffold(
       body: WelcomeBody(),
     );
@@ -143,7 +147,7 @@ class _WelcomeBody extends State<WelcomeBody> {
                       var jwt = await attemptLogIn(
                           _usernameController.text, _passwordController.text);
                       if (jwt != null) {
-                        storage.write(key: "jwt", value: jwt);
+                        await storage.write(key: "jwt", value: jwt);
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(

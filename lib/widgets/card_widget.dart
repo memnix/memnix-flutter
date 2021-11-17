@@ -27,6 +27,10 @@ class _CardWidget extends State<CardWidget> {
                 future: futureCard,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
+                    if (snapshot.data?.id == 0) {
+                      return const Text(
+                        "You don't have more cards to play today !");
+                    }
                     return TodaysWidget(
                       card: snapshot.data,
                       jwt: jwt,

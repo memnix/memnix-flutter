@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapp">
      <uses-permission android:name="android.permission.INTERNET" />
-   <application
+
+    <application
         android:label="Memnix"
         android:icon="@mipmap/moutmout">
         <activity
