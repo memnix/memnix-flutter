@@ -5,7 +5,7 @@ import 'package:myapp/models/memcard.dart';
 
 Future<MemCard> attemptTodayCard(dynamic jwt) async {
   var res = await http.get(
-    Uri.parse('http://192.168.1.151:1813/api/v1/cards/today'),
+    Uri.parse('https://memnix.yumenetwork.net/api/v1/cards/today'),
     headers: {"Cookie": jwt},
   );
   if (res.statusCode == 200) {
