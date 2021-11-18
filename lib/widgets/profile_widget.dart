@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/queries/login.dart';
+import 'package:myapp/screens/welcome_screen.dart';
 
 import '../bar.dart';
 
@@ -33,6 +35,8 @@ class ProfileSection extends StatelessWidget {
   ProfileSection({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Container(
       padding: const EdgeInsets.all(10),
       color: Colors.white,
@@ -46,9 +50,37 @@ class ProfileSection extends StatelessWidget {
                     fontSize: 18, fontWeight: FontWeight.w500)),
             Text("Decks: 6",
                 style: GoogleFonts.nunito(
-                    fontSize: 18, fontWeight: FontWeight.w500))
+                    fontSize: 18, fontWeight: FontWeight.w500)),
           ],
-        )
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        SizedBox(
+            height: size.height * 0.08,
+            width: size.width * 0.8,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue,
+                onPrimary: Colors.red,
+                onSurface: Colors.red,
+                elevation: 20,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+              ),
+              onPressed: () async {
+                var _ = await attemptLogout();
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => WelcomeScreen()));
+              },
+              child: Text(
+                "Logout",
+                style: GoogleFonts.lexendDeca(
+                    color: Colors.white, fontSize: 30, height: 1.5),
+              ),
+            ))
       ]),
     );
   }

@@ -1,13 +1,11 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:myapp/screens/main_screen.dart';
 
 import 'package:myapp/screens/welcome_screen.dart';
 import 'package:double_back_to_close/double_back_to_close.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:myapp/services/storage.dart';
 
-const storage = FlutterSecureStorage();
+final SecureStorage secureStorage = SecureStorage();
 
 void main() {
   runApp(const MyApp());
@@ -16,11 +14,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  Future<String> get jwtOrEmpty async {
-    var jwt = await storage.read(key: "jwt");
-    if (jwt == null) return "";
-    return jwt;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +21,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Welcome to Memnix',
       home: FutureBuilder(
-          future: jwtOrEmpty,
+          future: secureStorage.jwtOrEmpty,
           builder: (context, snapshot) {
             if (!snapshot.hasData) return const CircularProgressIndicator();
-              return DoubleBack(
+            if (snapshot.data != "") return MainPage.fromBase64(snapshot.data.toString());
+            return DoubleBack(
                 message: "Press back again to close",
-                child: WelcomeScreen(snapshot.data.toString()),
+                child: WelcomeScreen(),
               );
             }
           ),
