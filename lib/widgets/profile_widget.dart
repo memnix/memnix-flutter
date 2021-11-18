@@ -1,38 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/main.dart';
+import 'package:myapp/models/user.dart';
 import 'package:myapp/queries/login.dart';
+import 'package:myapp/queries/user.dart';
 import 'package:myapp/screens/welcome_screen.dart';
 
 import '../bar.dart';
 
-class ProfileWidget extends StatelessWidget {
-  const ProfileWidget({Key? key}) : super(key: key);
+class ProfileWidget extends StatefulWidget {
+  const ProfileWidget({Key? key, required this.jwt}) : super(key: key);
+  final String jwt;
+
+  @override
+  State<ProfileWidget> createState() => _ProfileWidgetState();
+}
+
+class _ProfileWidgetState extends State<ProfileWidget> {
+  late Future<User> futureUser;
+
+  get jwt => widget.jwt;
 
   @override
   Widget build(BuildContext context) {
+    futureUser = attemptUser(jwt);
+
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: const CardAppBar(),
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              ProfileSection(),
-            ],
-          ),
+          child: FutureBuilder<User>(
+              future: futureUser,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  if (snapshot.data?.id == 0) {
+                    return const Text("Can't find user's info");
+                  }
+                  return ProfileSection(user: snapshot.data);
+                }
+                return const Text("Can't find user's info");
+                // return const CircularProgressIndicator();
+              }),
         ));
   }
 }
 
 class ProfileSection extends StatelessWidget {
-  final card = [
-    {
-      'question': "Username",
-      'image_url':
-          "https://www.auctionlab.news/wp-content/uploads/2020/11/Antoine-DE-SAINT-EXUPERY-dapres-Le-Petit-Prince-en-costume-2009-Lithographie-auctionlab-0.jpg"
-    },
-  ];
+  final User? user;
 
-  ProfileSection({Key? key}) : super(key: key);
+  const ProfileSection({Key? key, required this.user}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -41,14 +57,14 @@ class ProfileSection extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       color: Colors.white,
       child: Column(children: [
-        ProfileCard(card[0]),
+        ProfileCard(user!),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text("Friends: 3",
+            Text("Friends: 0",
                 style: GoogleFonts.nunito(
                     fontSize: 18, fontWeight: FontWeight.w500)),
-            Text("Decks: 6",
+            Text("Decks: 1",
                 style: GoogleFonts.nunito(
                     fontSize: 18, fontWeight: FontWeight.w500)),
           ],
@@ -73,7 +89,7 @@ class ProfileSection extends StatelessWidget {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => WelcomeScreen()));
+                        builder: (context) => const WelcomeScreen()));
               },
               child: Text(
                 "Logout",
@@ -87,8 +103,8 @@ class ProfileSection extends StatelessWidget {
 }
 
 class ProfileCard extends StatelessWidget {
-  final cardData;
-  const ProfileCard(this.cardData, {Key? key}) : super(key: key);
+  final User user;
+  const ProfileCard(this.user, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -106,14 +122,14 @@ class ProfileCard extends StatelessWidget {
                 ),
                 image: DecorationImage(
                     fit: BoxFit.fitHeight,
-                    image: NetworkImage(cardData["image_url"]))),
+                    image: NetworkImage(user.avatarUrl))),
           ),
           Container(
               margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(cardData["question"],
+                  Text(user.userName,
                       style: GoogleFonts.nunito(
                           fontSize: 22, fontWeight: FontWeight.w800)),
                 ],

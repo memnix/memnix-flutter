@@ -37,7 +37,7 @@ class _MainPage extends State<MainPage> {
     final List _children = [
       const PlaceholderWidget(Colors.red),
       CardWidget(jwt: jwt),
-      const ProfileWidget(),
+      ProfileWidget(jwt: jwt),
     ];
     return WillPopScope(
         onWillPop: () async => false,
