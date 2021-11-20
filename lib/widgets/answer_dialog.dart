@@ -11,10 +11,16 @@ class AnswerDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var color;
+    if (jsonDecode(res!)["data"]["validate"] == true) {
+      color = Colors.green ;
+    } else {
+      color = Colors.red;
+    }
     // TODO: implement build
     return AlertDialog(
       title: Text(jsonDecode(res!)["data"]["message"],
-          style: GoogleFonts.nunito(fontSize: 22, fontWeight: FontWeight.w800)),
+          style: GoogleFonts.nunito(fontSize: 22, fontWeight: FontWeight.w800, color: color)),
       contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       content: Text(
           "Expected  answer: ${jsonDecode(res)["data"]['correct_answer']}",
