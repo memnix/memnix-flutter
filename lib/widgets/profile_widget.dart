@@ -33,7 +33,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   if (snapshot.data?.id == 0) {
-                    return const Text("Can't find user's info");
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WelcomeScreen()));
                   }
                   return ProfileSection(user: snapshot.data);
                 }

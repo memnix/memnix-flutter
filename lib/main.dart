@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           builder: (context, snapshot) {
             if (!snapshot.hasData) return const CircularProgressIndicator();
             if (snapshot.data != "") return MainPage.fromBase64(snapshot.data.toString());
-            return DoubleBack(
+            return const DoubleBack(
                 message: "Press back again to close",
                 child: WelcomeScreen(),
               );

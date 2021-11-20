@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/bar.dart';
+import 'package:myapp/main.dart';
 import 'package:myapp/models/memcard.dart';
 import 'package:myapp/queries/getTodayCard.dart';
+import 'package:myapp/queries/login.dart';
+import 'package:myapp/screens/welcome_screen.dart';
 import 'package:myapp/widgets/today_widget.dart';
 
 class CardWidget extends StatefulWidget {
@@ -29,15 +32,17 @@ class _CardWidget extends State<CardWidget> {
                   if (snapshot.hasData) {
                     if (snapshot.data?.id == 0) {
                       return const Text(
-                        "You don't have more cards to play today !");
+                          "You don't have more cards to play today !");
                     }
                     return TodaysWidget(
                       card: snapshot.data,
                       jwt: jwt,
                     );
                   } else if (snapshot.hasError) {
-                    return const Text(
-                        "You don't have more cards to play today !");
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WelcomeScreen()));
                   }
                   return const CircularProgressIndicator();
                 })));

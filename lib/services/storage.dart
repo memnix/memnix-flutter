@@ -1,4 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:myapp/queries/user.dart';
 
 class SecureStorage {
   final _storage = const FlutterSecureStorage();
@@ -6,6 +7,8 @@ class SecureStorage {
   Future<String> get jwtOrEmpty async {
     var jwt = await _storage.read(key: "jwt");
     if (jwt == null) return "";
+    var r = await attemptUser(jwt);
+    if (r.id == 0) return "";
     return jwt;
   }
 

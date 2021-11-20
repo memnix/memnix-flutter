@@ -11,6 +11,6 @@ Future<User> attemptUser(dynamic jwt) async {
   if (res.statusCode == 200) {
     return User.fromJson(jsonDecode(res.body));
   } else {
-    throw Exception('Failed to load user');
+    return User(0, 0, "", "", "");
   }
 }
