@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/screens/main_screen.dart';
+import 'package:Memnix/screens/main_screen.dart';
 
 class AnswerDialog extends StatelessWidget {
   const AnswerDialog({Key? key, this.res, this.jwt}) : super(key: key);

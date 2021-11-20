@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:myapp/main.dart';
+import 'package:Memnix/main.dart';
 
 Future<String?> attemptLogIn(String email, String password) async {
   var res = await http.post(

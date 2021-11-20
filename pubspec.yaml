@@ -1,5 +1,5 @@
-name: myapp
-description: A new Flutter project.
+name: Memnix
+description: A flutter app to play Memnix.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.

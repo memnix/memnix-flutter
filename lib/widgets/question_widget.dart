@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/models/memcard.dart';
+import 'package:Memnix/models/memcard.dart';
 
 class QuestionWidget extends StatefulWidget {
   final MemCard card;

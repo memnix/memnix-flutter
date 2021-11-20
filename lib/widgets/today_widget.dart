@@ -2,12 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/models/memcard.dart';
-import 'package:myapp/queries/postAnswer.dart';
-import 'package:myapp/screens/main_screen.dart';
-import 'package:myapp/widgets/answer_dialog.dart';
-import 'package:myapp/widgets/mcq_widget.dart';
-import 'package:myapp/widgets/question_widget.dart';
+import 'package:Memnix/models/memcard.dart';
+import 'package:Memnix/queries/postAnswer.dart';
+import 'package:Memnix/screens/main_screen.dart';
+import 'package:Memnix/widgets/answer_dialog.dart';
+import 'package:Memnix/widgets/mcq_widget.dart';
+import 'package:Memnix/widgets/question_widget.dart';
 
 class TodaysWidget extends StatefulWidget {
   final MemCard? card;

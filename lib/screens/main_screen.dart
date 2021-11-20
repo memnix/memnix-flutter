@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/main.dart';
-import 'package:myapp/widgets/card_widget.dart';
-import 'package:myapp/widgets/profile_widget.dart';
+import 'package:Memnix/main.dart';
+import 'package:Memnix/widgets/card_widget.dart';
+import 'package:Memnix/widgets/profile_widget.dart';
 
 class MainPage extends StatefulWidget {
   final String jwt;

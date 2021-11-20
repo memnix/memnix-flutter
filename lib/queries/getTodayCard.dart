@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'package:myapp/models/memcard.dart';
+import 'package:Memnix/models/memcard.dart';
 
 Future<MemCard> attemptTodayCard(dynamic jwt) async {
   var res = await http.get(

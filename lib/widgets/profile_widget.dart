@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/models/user.dart';
-import 'package:myapp/queries/login.dart';
-import 'package:myapp/queries/user.dart';
-import 'package:myapp/screens/welcome_screen.dart';
+import 'package:Memnix/models/user.dart';
+import 'package:Memnix/queries/login.dart';
+import 'package:Memnix/queries/user.dart';
+import 'package:Memnix/screens/welcome_screen.dart';
 
 import '../bar.dart';
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/bar.dart';
-import 'package:myapp/main.dart';
-import 'package:myapp/models/memcard.dart';
-import 'package:myapp/queries/getTodayCard.dart';
-import 'package:myapp/queries/login.dart';
-import 'package:myapp/screens/welcome_screen.dart';
-import 'package:myapp/widgets/today_widget.dart';
+import 'package:Memnix/bar.dart';
+import 'package:Memnix/main.dart';
+import 'package:Memnix/models/memcard.dart';
+import 'package:Memnix/queries/getTodayCard.dart';
+import 'package:Memnix/queries/login.dart';
+import 'package:Memnix/screens/welcome_screen.dart';
+import 'package:Memnix/widgets/today_widget.dart';
 
 class CardWidget extends StatefulWidget {
   const CardWidget({Key? key, required this.jwt}) : super(key: key);
