@@ -6,6 +6,8 @@ import 'package:myapp/models/memcard.dart';
 import 'package:myapp/queries/postAnswer.dart';
 import 'package:myapp/screens/main_screen.dart';
 
+import 'answer_dialog.dart';
+
 class McqButtonWidget extends StatefulWidget {
   final String answer;
   final MemCard card;
@@ -31,29 +33,11 @@ class _McqButtonWidget extends State<McqButtonWidget> {
         showDialog(
             context: context,
             barrierDismissible: false,
-            builder: (context) => AlertDialog(
-                  title: Text(jsonDecode(res!)["data"]["message"],
-                      style: GoogleFonts.nunito(
-                          fontSize: 22, fontWeight: FontWeight.w800)),
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                  content: Text(
-                      "Expected  answer: ${jsonDecode(res)["data"]['correct_answer']}",
-                      style: GoogleFonts.lexendDeca(
-                          fontSize: 20, fontWeight: FontWeight.w500)),
-                  actions: [
-                    ElevatedButton(
-                      child: const Text("Continue"),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    MainPage.fromBase64(jwt)));
-                      },
-                    )
-                  ],
-                ));
+            builder: (context) {
+              return WillPopScope(
+                  onWillPop: () async => false,
+                  child: AnswerDialog(res: res, jwt: widget.jwt));
+            });
       },
       style: ElevatedButton.styleFrom(
         primary: Colors.lightBlue[400],
