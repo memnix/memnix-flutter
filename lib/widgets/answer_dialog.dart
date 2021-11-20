@@ -11,7 +11,7 @@ class AnswerDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color;
+    MaterialColor color;
     if (jsonDecode(res!)["data"]["validate"] == true) {
       color = Colors.green ;
     } else {
