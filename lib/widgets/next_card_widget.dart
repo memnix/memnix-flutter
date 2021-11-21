@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Memnix/models/memcard.dart';
-import 'package:Memnix/queries/getTodayCard.dart';
+import 'package:Memnix/queries/getCard.dart';
 import 'package:Memnix/screens/welcome_screen.dart';
 import 'package:Memnix/widgets/today_widget.dart';
 

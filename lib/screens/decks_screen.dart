@@ -1,4 +1,7 @@
+import 'package:Memnix/models/deck.dart';
+import 'package:Memnix/queries/getDeck.dart';
 import 'package:Memnix/screens/deck_play_screen.dart';
+import 'package:Memnix/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,80 +16,65 @@ class DecksPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: const CardAppBar(),
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: [
-              DeckSection( jwt: jwt),
+              DeckSection(jwt: jwt),
             ],
           ),
         ));
   }
 }
 
-class DeckSection extends StatelessWidget {
-  final List deckList = [
-    {
-      'deck_name': "What's the answer to life ?",
-      'description': "42",
-      'banner':
-          'https://static.pix-geeks.com/2016/07/h2g2-le-guide-du-voyageur-galactique-24917.jpg'
-    },
-    {
-      'deck_name': "What's the answer to life ?",
-      'description': "42",
-      'banner':
-          'https://static.pix-geeks.com/2016/07/h2g2-le-guide-du-voyageur-galactique-24917.jpg'
-    },
-    {
-      'deck_name': "What's the answer to life ?",
-      'description': "42",
-      'banner':
-          'https://static.pix-geeks.com/2016/07/h2g2-le-guide-du-voyageur-galactique-24917.jpg'
-    },
-    {
-      'deck_name': "What's the answer to life ?",
-      'description': "42",
-      'banner':
-          'https://static.pix-geeks.com/2016/07/h2g2-le-guide-du-voyageur-galactique-24917.jpg'
-    },
-    {
-      'deck_name': "What's the answer to life ?",
-      'description': "42",
-      'banner':
-          'https://static.pix-geeks.com/2016/07/h2g2-le-guide-du-voyageur-galactique-24917.jpg'
-    },
-    {
-      'deck_name': "What's the answer to life ?",
-      'description': "42",
-      'banner':
-          'https://static.pix-geeks.com/2016/07/h2g2-le-guide-du-voyageur-galactique-24917.jpg'
-    },
-  ];
+class DeckSection extends StatefulWidget {
   final String jwt;
 
-  DeckSection({Key? key, required this.jwt}) : super(key: key);
+  const DeckSection({Key? key, required this.jwt}) : super(key: key);
 
   @override
+  State<DeckSection> createState() => _DeckSectionState();
+}
+
+class _DeckSectionState extends State<DeckSection> {
+  @override
   Widget build(BuildContext context) {
+    Future<List<Deck>> futureDeck = attemptSubDecks(widget.jwt);
+
     return Container(
-      padding: const EdgeInsets.all(10),
-      color: Colors.white,
-      child: Column(
-        children: deckList.map(
-          (deck) {
-            return MemnixDeck(deck, jwt);
-          },
-        ).toList(),
-      ),
-    );
+        padding: const EdgeInsets.all(10),
+        color: Colors.white,
+        child: FutureBuilder<List<Deck>>(
+            future: futureDeck,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                if (snapshot.data!.isEmpty) {
+                  return const Text("You are not sub to any deck!");
+                }
+
+                return Column(
+                  children: snapshot.data!.map(
+                    (deck) {
+                      return MemnixDeck(deck, widget.jwt);
+                    },
+                  ).toList(),
+                );
+              } else if (snapshot.hasError) {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const WelcomeScreen()));
+              }
+              return const CircularProgressIndicator();
+            }));
   }
 }
 
 class MemnixDeck extends StatelessWidget {
   final String jwt;
 
-  final Map deckData;
-  const MemnixDeck(this.deckData, this.jwt, {Key? key }) : super(key: key);
+  final Deck deckData;
+  const MemnixDeck(this.deckData, this.jwt, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -121,19 +109,19 @@ class MemnixDeck extends StatelessWidget {
                     ),
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(deckData["banner"]))),
+                        image: NetworkImage(deckData.banner))),
               ),
               Container(
                   margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(deckData["deck_name"],
+                      Text(deckData.deckName,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.nunito(
                               fontSize: 18, fontWeight: FontWeight.w800)),
                       const SizedBox(height: 10),
-                      Text(deckData["description"],
+                      Text(deckData.description,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.nunito(
                               fontSize: 14, fontWeight: FontWeight.w500))
