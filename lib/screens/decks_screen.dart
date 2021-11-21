@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../bar.dart';
 
-class CardsPage extends StatelessWidget {
-  const CardsPage({Key? key}) : super(key: key);
+class DecksPage extends StatelessWidget {
+  const DecksPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
