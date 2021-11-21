@@ -1,10 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:Memnix/models/memcard.dart';
 import 'package:Memnix/queries/postAnswer.dart';
-import 'package:Memnix/screens/main_screen.dart';
 
 import 'answer_dialog.dart';
 
@@ -12,8 +9,9 @@ class McqButtonWidget extends StatefulWidget {
   final String answer;
   final MemCard card;
   final dynamic jwt;
+  final bool today;
 
-  const McqButtonWidget(this.answer, this.card, this.jwt, {Key? key})
+  const McqButtonWidget(this.answer, this.card, this.jwt, this.today, {Key? key})
       : super(key: key);
 
   @override
@@ -24,6 +22,7 @@ class _McqButtonWidget extends State<McqButtonWidget> {
   get answer => widget.answer;
   get card => widget.card;
   get jwt => widget.jwt;
+  get today => widget.today;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +35,7 @@ class _McqButtonWidget extends State<McqButtonWidget> {
             builder: (context) {
               return WillPopScope(
                   onWillPop: () async => false,
-                  child: AnswerDialog(res: res, jwt: widget.jwt));
+                  child: AnswerDialog(res: res, jwt: widget.jwt, today: today));
             });
       },
       style: ElevatedButton.styleFrom(
@@ -54,3 +53,5 @@ class _McqButtonWidget extends State<McqButtonWidget> {
     );
   }
 }
+
+

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:Memnix/screens/decks_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:Memnix/main.dart';
 import 'package:Memnix/widgets/card_widget.dart';
 import 'package:Memnix/widgets/profile_widget.dart';
 
@@ -16,6 +15,8 @@ class MainPage extends StatefulWidget {
 
   @override
   _MainPage createState() => _MainPage();
+
+  //TODO: function to go back to decks list
 
   static fromBase64(String jwt) => MainPage(
       jwt: jwt,
@@ -36,7 +37,7 @@ class _MainPage extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final List _children = [
-      const DecksPage(),
+      DecksPage(jwt: jwt),
       CardWidget(jwt: jwt),
       ProfileWidget(jwt: jwt),
     ];

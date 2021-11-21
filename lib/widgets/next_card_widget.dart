@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:Memnix/bar.dart';
 import 'package:Memnix/models/memcard.dart';
 import 'package:Memnix/queries/getTodayCard.dart';
 import 'package:Memnix/screens/welcome_screen.dart';
 import 'package:Memnix/widgets/today_widget.dart';
 
-class CardWidget extends StatefulWidget {
-  const CardWidget({Key? key, required this.jwt}) : super(key: key);
+class NextCardWidget extends StatefulWidget {
+  const NextCardWidget({Key? key, required this.jwt}) : super(key: key);
   final String jwt;
 
   @override
-  _CardWidget createState() => _CardWidget();
+  _NextCardWidget createState() => _NextCardWidget();
 }
 
-class _CardWidget extends State<CardWidget> {
+class _NextCardWidget extends State<NextCardWidget> {
   get jwt => widget.jwt;
   late Future<MemCard> futureCard;
 
   @override
   Widget build(BuildContext context) {
-    futureCard = attemptTodayCard(jwt);
+    futureCard = attemptNextCardByDeck(jwt);
     return Scaffold(
-        appBar: const CardAppBar(),
         body: Container(
             padding: const EdgeInsets.all(20),
             child: FutureBuilder<MemCard>(
@@ -35,7 +33,7 @@ class _CardWidget extends State<CardWidget> {
                     return TodaysWidget(
                       card: snapshot.data,
                       jwt: jwt,
-                      today: true
+                      today: false
                     );
                   } else if (snapshot.hasError) {
                     Navigator.pushReplacement(

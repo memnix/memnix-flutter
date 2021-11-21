@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:Memnix/models/memcard.dart';
 import 'package:Memnix/queries/postAnswer.dart';
-import 'package:Memnix/screens/main_screen.dart';
 import 'package:Memnix/widgets/answer_dialog.dart';
 import 'package:Memnix/widgets/mcq_widget.dart';
 import 'package:Memnix/widgets/question_widget.dart';
@@ -12,8 +11,9 @@ import 'package:Memnix/widgets/question_widget.dart';
 class TodaysWidget extends StatefulWidget {
   final MemCard? card;
   final dynamic jwt;
+  final bool today;
 
-  const TodaysWidget({Key? key, required this.card, required this.jwt})
+  const TodaysWidget({Key? key, required this.card, required this.jwt, required this.today})
       : super(key: key);
 
   @override
@@ -23,18 +23,20 @@ class TodaysWidget extends StatefulWidget {
 class _TodaysWidgetState extends State<TodaysWidget> {
   final TextEditingController textController = TextEditingController();
 
+  get today => widget.today;
+
   showWidget(MemCard card, dynamic context) {
     if (card.type == 2) {
       return Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            McqButtonWidget(card.response0, card, widget.jwt),
+            McqButtonWidget(card.response0, card, widget.jwt, today),
             const Padding(padding: EdgeInsets.all(8.0)),
-            McqButtonWidget(card.response1, card, widget.jwt),
+            McqButtonWidget(card.response1, card, widget.jwt, today),
             const Padding(padding: EdgeInsets.all(8.0)),
-            McqButtonWidget(card.response2, card, widget.jwt),
+            McqButtonWidget(card.response2, card, widget.jwt, today),
             const Padding(padding: EdgeInsets.all(8.0)),
-            McqButtonWidget(card.response3, card, widget.jwt),
+            McqButtonWidget(card.response3, card, widget.jwt, today),
           ]);
     } else {
       return Column(
@@ -52,7 +54,7 @@ class _TodaysWidgetState extends State<TodaysWidget> {
                   builder: (context) {
                     return WillPopScope(
                         onWillPop: () async => false,
-                        child: AnswerDialog(res: res, jwt: widget.jwt));
+                        child: AnswerDialog(res: res, jwt: widget.jwt, today: today));
                   });
             },
             maxLines: 1,

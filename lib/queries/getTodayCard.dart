@@ -14,3 +14,16 @@ Future<MemCard> attemptTodayCard(dynamic jwt) async {
     throw Exception('Failed to load card');
   }
 }
+
+
+Future<MemCard> attemptNextCardByDeck(dynamic jwt) async {
+  var res = await http.get(
+    Uri.parse('https://memnix.yumenetwork.net/api/v1/cards/1/next'),
+    headers: {"Cookie": jwt},
+  );
+  if (res.statusCode == 200) {
+    return MemCard.fromJson(jsonDecode(res.body)["data"]);
+  } else {
+    throw Exception('Failed to load card');
+  }
+}

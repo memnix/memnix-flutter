@@ -1,18 +1,23 @@
+import 'package:Memnix/screens/decks_screen.dart';
+import 'package:Memnix/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({Key? key}) : super(key: key);
+  const MyAppBar({Key? key, required this.jwt}) : super(key: key);
+  final String jwt;
 
   @override
   Size get preferredSize => const Size.fromHeight(40);
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: const IconButton(
-        icon: Icon(Icons.arrow_back, color: Colors.grey),
-        onPressed: null,
-      ),
+      leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.grey),
+          onPressed: () {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => MainPage.fromBase64(jwt)));
+          }),
       title: Text(
         'Explore',
         style: GoogleFonts.lexendDeca(
@@ -34,7 +39,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                 builder: (context) => const AlertDialog(
                     title: Text("Memnix Alpha"),
                     content: Text(
-                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.3")));          },
+                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.3")));
+          },
         ),
       ],
       centerTitle: true,
