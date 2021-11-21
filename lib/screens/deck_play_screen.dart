@@ -11,10 +11,9 @@ class DeckPlayScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: () async => false,
-      child: Scaffold(
-        appBar: MyAppBar(jwt: jwt),
-        body:
-              NextCardWidget(jwt: jwt),
+        child: Scaffold(
+          appBar: MyAppBar(jwt: jwt),
+          body: NextCardWidget(jwt: jwt),
         ));
   }
 }
