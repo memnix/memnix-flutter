@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:Memnix/main.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:Memnix/models/memcard.dart';
@@ -15,10 +16,10 @@ Future<MemCard> attemptTodayCard(dynamic jwt) async {
   }
 }
 
-
 Future<MemCard> attemptNextCardByDeck(dynamic jwt) async {
   var res = await http.get(
-    Uri.parse('https://memnix.yumenetwork.net/api/v1/cards/1/next'),
+    Uri.parse(
+        'https://memnix.yumenetwork.net/api/v1/cards/${currentDeck.id}/next'),
     headers: {"Cookie": jwt},
   );
   if (res.statusCode == 200) {

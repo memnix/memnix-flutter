@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 
 import 'package:double_back_to_close/double_back_to_close.dart';
 
+import 'models/deck.dart';
+
 final SecureStorage secureStorage = SecureStorage();
+Deck currentDeck = Deck(0, "", "", "", 0);
 
 void main() {
   runApp(const MyApp());

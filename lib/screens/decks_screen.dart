@@ -1,3 +1,4 @@
+import 'package:Memnix/main.dart';
 import 'package:Memnix/models/deck.dart';
 import 'package:Memnix/queries/getDeck.dart';
 import 'package:Memnix/screens/deck_play_screen.dart';
@@ -79,10 +80,11 @@ class MemnixDeck extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
+          currentDeck = deckData;
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => DeckPlayScreen(jwt: jwt)));
+                  builder: (context) => DeckPlayScreen(jwt: jwt,)));
         },
         child: Container(
           margin: const EdgeInsets.all(10),

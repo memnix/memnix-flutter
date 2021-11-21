@@ -1,3 +1,4 @@
+import 'package:Memnix/models/deck.dart';
 import 'package:Memnix/widgets/next_card_widget.dart';
 import 'package:flutter/material.dart';
 

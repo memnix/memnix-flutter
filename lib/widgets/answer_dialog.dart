@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:Memnix/main.dart';
 import 'package:Memnix/screens/deck_play_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
