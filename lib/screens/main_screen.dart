@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:Memnix/screens/decks_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:Memnix/main.dart';
@@ -35,7 +36,7 @@ class _MainPage extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final List _children = [
-      const PlaceholderWidget(Colors.red),
+      const DecksPage(),
       CardWidget(jwt: jwt),
       ProfileWidget(jwt: jwt),
     ];
@@ -50,7 +51,7 @@ class _MainPage extends State<MainPage> {
             items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.view_list),
-                label: "Cards",
+                label: "Decks",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),

@@ -29,8 +29,12 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             size: 20,
           ),
           onPressed: () {
-            Navigator.pushNamed(context, "/second");
-          },
+            showDialog(
+                context: context,
+                builder: (context) => const AlertDialog(
+                    title: Text("Memnix Alpha"),
+                    content: Text(
+                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.3")));          },
         ),
       ],
       centerTitle: true,
