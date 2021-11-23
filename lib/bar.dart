@@ -38,7 +38,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                 builder: (context) => const AlertDialog(
                     title: Text("Memnix Alpha"),
                     content: Text(
-                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.4")));
+                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.5")));
           },
         ),
       ],
@@ -77,7 +77,7 @@ class CardAppBar extends StatelessWidget implements PreferredSizeWidget {
                 builder: (context) => const AlertDialog(
                     title: Text("Memnix Alpha"),
                     content: Text(
-                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.4")));
+                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.5")));
           },
         ),
       ],
