@@ -24,6 +24,7 @@ class _TodaysWidgetState extends State<TodaysWidget> {
   final TextEditingController textController = TextEditingController();
 
   get today => widget.today;
+  TextInputType keyType = TextInputType.text;
 
   showWidget(MemCard card, dynamic context) {
     if (card.type == 2) {
@@ -39,12 +40,18 @@ class _TodaysWidgetState extends State<TodaysWidget> {
             McqButtonWidget(card.response3, card, widget.jwt, today),
           ]);
     } else {
+      if (card.type == 1) {
+        keyType = TextInputType.number;
+      } else if (card.type == 0) {
+        keyType = TextInputType.text;
+      }
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const Padding(padding: EdgeInsets.all(15.0)),
           TextField(
             controller: textController,
+            keyboardType: keyType,
             textInputAction: TextInputAction.go,
             onSubmitted: (value) async {
               var res = await attemptPostAnswer(card, value, widget.jwt);

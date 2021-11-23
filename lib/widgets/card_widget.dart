@@ -4,6 +4,7 @@ import 'package:Memnix/models/memcard.dart';
 import 'package:Memnix/queries/getCard.dart';
 import 'package:Memnix/screens/welcome_screen.dart';
 import 'package:Memnix/widgets/today_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CardWidget extends StatefulWidget {
   const CardWidget({Key? key, required this.jwt}) : super(key: key);
@@ -29,8 +30,10 @@ class _CardWidget extends State<CardWidget> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     if (snapshot.data?.id == 0) {
-                      return const Text(
-                          "You don't have more cards to play today !");
+                      return Center(child: Text(
+                          "You don't have more cards to play today !",
+                          style: GoogleFonts.nunito(
+                          fontSize: 26, fontWeight: FontWeight.w700)),);
                     }
                     return TodaysWidget(
                       card: snapshot.data,
