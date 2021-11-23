@@ -1,4 +1,3 @@
-import 'package:Memnix/screens/decks_screen.dart';
 import 'package:Memnix/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,7 +38,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                 builder: (context) => const AlertDialog(
                     title: Text("Memnix Alpha"),
                     content: Text(
-                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.3")));
+                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.4")));
           },
         ),
       ],
@@ -78,7 +77,7 @@ class CardAppBar extends StatelessWidget implements PreferredSizeWidget {
                 builder: (context) => const AlertDialog(
                     title: Text("Memnix Alpha"),
                     content: Text(
-                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.3")));
+                        "Memnix alpha version testing !\nversion: 0.1.0-alpha2.4")));
           },
         ),
       ],
