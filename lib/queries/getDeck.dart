@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 Future<List<Deck>> attemptSubDecks(dynamic jwt) async {
   List<Deck> decks = [];
   var res = await http.get(
-    Uri.parse('https://memnix.yumenetwork.net/api/v1/decks/sub'),
+    Uri.parse('https://api-memnix.yumenetwork.net/api/v1/decks/sub'),
     headers: {"Cookie": jwt},
   );
   if (res.statusCode == 200) {

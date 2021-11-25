@@ -6,7 +6,7 @@ import 'package:Memnix/models/memcard.dart';
 
 Future<MemCard> attemptTodayCard(dynamic jwt) async {
   var res = await http.get(
-    Uri.parse('https://memnix.yumenetwork.net/api/v1/cards/today'),
+    Uri.parse('https://api-memnix.yumenetwork.net/api/v1/cards/today'),
     headers: {"Cookie": jwt},
   );
   if (res.statusCode == 200) {
@@ -19,7 +19,7 @@ Future<MemCard> attemptTodayCard(dynamic jwt) async {
 Future<MemCard> attemptNextCardByDeck(dynamic jwt) async {
   var res = await http.get(
     Uri.parse(
-        'https://memnix.yumenetwork.net/api/v1/cards/${currentDeck.id}/next'),
+        'https://api-memnix.yumenetwork.net/api/v1/cards/${currentDeck.id}/next'),
     headers: {"Cookie": jwt},
   );
   if (res.statusCode == 200) {
