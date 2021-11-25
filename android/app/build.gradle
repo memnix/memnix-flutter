@@ -53,10 +53,10 @@ android {
         applicationId "com.yumenetwork.memnix"
         minSdkVersion 20
         targetSdkVersion 30
-        versionCode 3
-        versionName "0.1.0-alpha2.5"
+        versionCode 4
+        versionName "0.1.0-beta1.0"
     }
-    /*
+
     signingConfigs {
         release {
             keyAlias keystoreProperties['keyAlias']
@@ -64,14 +64,14 @@ android {
             storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
             storePassword keystoreProperties['storePassword']
         }
-    } */
+    }
 
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
-            // signingConfig signingConfigs.release
+            // signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }
