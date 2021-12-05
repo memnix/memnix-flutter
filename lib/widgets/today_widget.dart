@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:Memnix/models/memcard.dart';
-import 'package:Memnix/queries/postAnswer.dart';
+import 'package:Memnix/queries/post_answer.dart';
 import 'package:Memnix/widgets/answer_dialog.dart';
 import 'package:Memnix/widgets/mcq_widget.dart';
 import 'package:Memnix/widgets/question_widget.dart';

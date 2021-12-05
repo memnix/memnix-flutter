@@ -16,6 +16,7 @@ class MainPage extends StatefulWidget {
   @override
   _MainPage createState() => _MainPage();
 
+  // ignore: todo
   //TODO: function to go back to decks list
 
   static fromBase64(String jwt) => MainPage(

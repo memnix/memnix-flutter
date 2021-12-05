@@ -1,6 +1,6 @@
 import 'package:Memnix/main.dart';
 import 'package:Memnix/models/deck.dart';
-import 'package:Memnix/queries/getDeck.dart';
+import 'package:Memnix/queries/get_deck.dart';
 import 'package:Memnix/screens/deck_play_screen.dart';
 import 'package:Memnix/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';

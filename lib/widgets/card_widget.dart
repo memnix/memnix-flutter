@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:Memnix/bar.dart';
 import 'package:Memnix/models/memcard.dart';
-import 'package:Memnix/queries/getCard.dart';
+import 'package:Memnix/queries/get_card.dart';
 import 'package:Memnix/screens/welcome_screen.dart';
 import 'package:Memnix/widgets/today_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
