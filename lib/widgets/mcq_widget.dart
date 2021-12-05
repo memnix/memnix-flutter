@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:Memnix/models/memcard.dart';
-import 'package:Memnix/queries/post_answer.dart';
+import 'package:memnix/models/memcard.dart';
+import 'package:memnix/queries/post_answer.dart';
 
 import 'answer_dialog.dart';
 

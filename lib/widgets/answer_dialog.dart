@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:Memnix/screens/deck_play_screen.dart';
+import 'package:memnix/screens/deck_play_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:Memnix/screens/main_screen.dart';
+import 'package:memnix/screens/main_screen.dart';
 
 class AnswerDialog extends StatelessWidget {
   const AnswerDialog(

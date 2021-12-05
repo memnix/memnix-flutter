@@ -1,6 +1,6 @@
-import 'package:Memnix/screens/main_screen.dart';
-import 'package:Memnix/screens/welcome_screen.dart';
-import 'package:Memnix/services/storage.dart';
+import 'package:memnix/screens/main_screen.dart';
+import 'package:memnix/screens/welcome_screen.dart';
+import 'package:memnix/services/storage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:double_back_to_close/double_back_to_close.dart';

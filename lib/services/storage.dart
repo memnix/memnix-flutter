@@ -1,5 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:Memnix/queries/user.dart';
+import 'package:memnix/queries/user.dart';
 
 class SecureStorage {
   final _storage = const FlutterSecureStorage();

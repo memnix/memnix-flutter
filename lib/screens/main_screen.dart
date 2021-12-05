@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:Memnix/screens/decks_screen.dart';
+import 'package:memnix/screens/decks_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:Memnix/widgets/card_widget.dart';
-import 'package:Memnix/widgets/profile_widget.dart';
+import 'package:memnix/widgets/card_widget.dart';
+import 'package:memnix/widgets/profile_widget.dart';
 
 class MainPage extends StatefulWidget {
   final String jwt;

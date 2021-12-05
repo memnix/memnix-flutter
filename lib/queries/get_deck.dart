@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:Memnix/models/deck.dart';
+import 'package:memnix/models/deck.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<Deck>> attemptSubDecks(dynamic jwt) async {

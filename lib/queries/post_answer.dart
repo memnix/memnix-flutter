@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:Memnix/models/memcard.dart';
+import 'package:memnix/models/memcard.dart';
 
 Future<String?> attemptPostAnswer(
     MemCard card, String answer, dynamic jwt) async {

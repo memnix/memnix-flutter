@@ -1,8 +1,8 @@
-import 'package:Memnix/main.dart';
-import 'package:Memnix/models/deck.dart';
-import 'package:Memnix/queries/get_deck.dart';
-import 'package:Memnix/screens/deck_play_screen.dart';
-import 'package:Memnix/screens/welcome_screen.dart';
+import 'package:memnix/main.dart';
+import 'package:memnix/models/deck.dart';
+import 'package:memnix/queries/get_deck.dart';
+import 'package:memnix/screens/deck_play_screen.dart';
+import 'package:memnix/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

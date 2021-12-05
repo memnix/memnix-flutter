@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'package:Memnix/models/user.dart';
+import 'package:memnix/models/user.dart';
 
 Future<User> attemptUser(dynamic jwt) async {
   var res = await http.get(

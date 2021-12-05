@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:Memnix/bar.dart';
-import 'package:Memnix/models/memcard.dart';
-import 'package:Memnix/queries/get_card.dart';
-import 'package:Memnix/screens/welcome_screen.dart';
-import 'package:Memnix/widgets/today_widget.dart';
+import 'package:memnix/bar.dart';
+import 'package:memnix/models/memcard.dart';
+import 'package:memnix/queries/get_card.dart';
+import 'package:memnix/screens/welcome_screen.dart';
+import 'package:memnix/widgets/today_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CardWidget extends StatefulWidget {

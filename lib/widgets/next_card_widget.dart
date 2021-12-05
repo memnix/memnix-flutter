@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:Memnix/models/memcard.dart';
-import 'package:Memnix/queries/get_card.dart';
-import 'package:Memnix/screens/welcome_screen.dart';
-import 'package:Memnix/widgets/today_widget.dart';
+import 'package:memnix/models/memcard.dart';
+import 'package:memnix/queries/get_card.dart';
+import 'package:memnix/screens/welcome_screen.dart';
+import 'package:memnix/widgets/today_widget.dart';
 
 class NextCardWidget extends StatefulWidget {
   const NextCardWidget({Key? key, required this.jwt}) : super(key: key);
